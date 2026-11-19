@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Conception et sécurisation d’un réseau local complet avec VLAN, routage, DHCP, services Linux et règles de filtrage.">
-  <title>e-Portfolio - Réseau complet GNS3</title>
-  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <meta name="description" content="Outil Python doté d’une interface PyQt5 pour détecter, visualiser et supprimer de manière sécurisée les fichiers volumineux.">
+  <title>e-Portfolio - Outil de traitement de données</title>
+  <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="../../assets/js/script.js" defer></script>
 </head>
 <body class="project-personal">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
   
 <header class="site-header" data-header>
   <nav class="container navbar" aria-label="Navigation principale">
-    <a class="brand" href="index.html" aria-label="Accueil du portfolio">
+    <a class="brand" href="../../index.html" aria-label="Accueil du portfolio">
       <span class="brand-mark" aria-hidden="true">P</span>
       <span>Portfolio</span>
     </a>
@@ -23,10 +23,10 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="main-menu" data-menu>
-      <li><a  href="index.html">Accueil</a></li>
-      <li><a  href="about.html">À propos</a></li>
-      <li><a class="active" aria-current="page" href="projects.html">Projets</a></li>
-      <li><a  href="contact.html">Contact</a></li>
+      <li><a  href="../../index.html">Accueil</a></li>
+      <li><a  href="../about.html">À propos</a></li>
+      <li><a class="active" aria-current="page" href="../projects.html">Projets</a></li>
+      <li><a  href="../contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -35,21 +35,21 @@
   <main id="contenu">
     <section class="project-hero section">
       <div class="container">
-        <a class="back-link" href="projects.html">← Retour aux projets</a>
+        <a class="back-link" href="../projects.html">← Retour aux projets</a>
         <div class="project-title-block reveal">
           <div>
-            <p class="eyebrow">Réseau · 2025</p>
-            <h1>Réseau complet GNS3</h1>
-            <p>Conception et sécurisation d’un réseau local complet avec VLAN, routage, DHCP, services Linux et règles de filtrage.</p>
+            <p class="eyebrow">Programmation · 2025</p>
+            <h1>Outil de traitement de données</h1>
+            <p>Outil Python doté d’une interface PyQt5 pour détecter, visualiser et supprimer de manière sécurisée les fichiers volumineux.</p>
           </div>
           <ul class="project-stat-list">
             <li><span>Année</span><strong>2025</strong></li>
-            <li><span>Catégorie</span><strong>Réseau</strong></li>
-            <li><span>Rôle</span><strong>Conception et configuration</strong></li>
+            <li><span>Catégorie</span><strong>Programmation</strong></li>
+            <li><span>Rôle</span><strong>Développement principal</strong></li>
           </ul>
         </div>
         <div class="project-cover reveal">
-          <img src="assets/images/projet-reseau-gns3.jpg" alt="Aperçu du projet Réseau complet GNS3">
+          <img src="../../assets/images/projet-traitement-donnees.jpg" alt="Aperçu du projet Outil de traitement de données">
         </div>
       </div>
     </section>
@@ -70,15 +70,15 @@
         <article class="case-study-content prose">
           <section id="contexte">
             <p class="eyebrow">01 — Contexte</p>
-            <h2>Concevoir un réseau local complet et sécurisé</h2>
-            <p>Le projet consiste à concevoir et sécuriser un réseau local complet dans GNS3. Il inclut des VLAN, le routage inter-VLAN, l’équilibrage de charge, un plan d’adressage, des services réseau et des règles de sécurité.</p>
+            <h2>Analyser les fichiers volumineux d’un ordinateur</h2>
+            <p>Le projet consiste à créer un outil d’analyse de répertoires capable de filtrer les fichiers selon leur taille, de présenter les résultats dans une interface graphique et de sécuriser leur suppression.</p>
           </section>
 
           <section id="objectifs">
             <p class="eyebrow">02 — Objectifs</p>
             <h2>Ce que le projet devait accomplir</h2>
             <ul class="check-list">
-              <li>Configurer les VLAN Administration, Développeurs et Administrateurs.</li><li>Mettre en place un VLAN natif sécurisé.</li><li>Assurer le routage inter-VLAN et la redondance.</li><li>Centraliser le service DHCP sur un serveur Linux.</li><li>Déployer un serveur FTP et deux serveurs web synchronisés.</li><li>Appliquer des ACL et le port-security.</li>
+              <li>Analyser récursivement un répertoire avec Python et Pathlib.</li><li>Présenter les résultats dans une interface PyQt5.</li><li>Afficher des graphiques dynamiques avec PyQtChart.</li><li>Automatiser le lancement et la suppression avec PowerShell.</li><li>Conserver une approche portable grâce à l’échange de métadonnées en JSON.</li>
             </ul>
           </section>
 
@@ -86,14 +86,14 @@
             <p class="eyebrow">03 — Démarche</p>
             <h2>Les principales étapes</h2>
             <div class="process-grid">
-              <div><span>01</span><h3>Topologie</h3><p>Création de la maquette avec routeurs, commutateurs et postes virtuels.</p></div><div><span>02</span><h3>Segmentation</h3><p>Configuration des VLAN et des trunks sur les commutateurs.</p></div><div><span>03</span><h3>Routage</h3><p>Mise en place de STP, de RIP v2, du plan d’adressage et du relais DHCP.</p></div><div><span>04</span><h3>Services</h3><p>Déploiement de FTP, Apache et rsync, puis configuration des ACL.</p></div>
+              <div><span>01</span><h3>Analyse</h3><p>Développement d’un script de parcours de répertoires et de filtrage selon la taille.</p></div><div><span>02</span><h3>Interface</h3><p>Création d’une interface graphique interactive avec PyQt5.</p></div><div><span>03</span><h3>Visualisation</h3><p>Ajout de graphiques dynamiques présentant les fichiers détectés.</p></div><div><span>04</span><h3>Sécurisation</h3><p>Création de scripts PowerShell avec confirmation avant suppression.</p></div>
             </div>
           </section>
 
           <section>
             <p class="eyebrow">Technologies et outils</p>
             <ul class="tag-list tag-list-large">
-              <li>GNS3</li><li>Cisco 3660</li><li>VLAN</li><li>STP</li><li>RIP v2</li><li>DHCP</li><li>Debian</li><li>ACL</li>
+              <li>Python</li><li>Pathlib</li><li>PyQt5</li><li>PyQtChart</li><li>PowerShell</li><li>JSON</li>
             </ul>
           </section>
 
@@ -101,14 +101,14 @@
             <p class="eyebrow">04 — Résultats</p>
             <h2>Ce qui a été réalisé</h2>
             <ul class="check-list">
-              <li>Infrastructure réseau opérationnelle.</li><li>Plan d’adressage et routage inter-VLAN fonctionnels.</li><li>Service DHCP centralisé.</li><li>Services FTP et web opérationnels avec synchronisation.</li><li>ACL et port-security appliqués et testés.</li>
+              <li>Outil complet d’analyse de fichiers volumineux.</li><li>Interface graphique fonctionnelle avec graphiques dynamiques.</li><li>Suppression sécurisée à l’aide de PowerShell.</li>
             </ul>
           </section>
 
           <section id="bilan">
             <p class="eyebrow">05 — Bilan</p>
             <h2>Compétences développées</h2>
-            <p>Conception et sécurisation d’un réseau VLAN et trunk.</p><p>Mise en œuvre de DHCP, du relais DHCP, de RIP v2 et de STP.</p><p>Déploiement de services réseau sous Linux.</p><p>Rédaction et débogage d’ACL pour filtrer précisément le trafic.</p>
+            <p>Renforcement des compétences en Python, PyQt5 et PowerShell.</p><p>Compréhension de l’importance de la modularité, de l’ergonomie et de la portabilité multi-OS.</p>
           </section>
 
           
@@ -117,8 +117,16 @@
   <h2>Captures du projet</h2>
   <div class="gallery-grid" data-gallery>
     
-<button type="button" data-lightbox-src="assets/images/gns3-topologie.jpg">
-  <img src="assets/images/gns3-topologie.jpg" alt="Topologie du réseau réalisée dans GNS3">
+<button type="button" data-lightbox-src="../../assets/images/outil-analyse.jpg">
+  <img src="../../assets/images/outil-analyse.jpg" alt="Logiciel après l’analyse">
+</button>
+
+<button type="button" data-lightbox-src="../../assets/images/outil-liste.jpg">
+  <img src="../../assets/images/outil-liste.jpg" alt="Liste des fichiers détectés">
+</button>
+
+<button type="button" data-lightbox-src="../../assets/images/outil-suppression.jpg">
+  <img src="../../assets/images/outil-suppression.jpg" alt="Menu de suppression">
 </button>
 
   </div>
@@ -139,7 +147,7 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <a class="brand footer-brand" href="index.html">
+      <a class="brand footer-brand" href="../../index.html">
         <span class="brand-mark">MD</span>
         <span>Portfolio</span>
       </a>
@@ -148,9 +156,9 @@
     <div>
       <h2>Navigation</h2>
       <ul>
-        <li><a href="about.html">À propos</a></li>
-        <li><a href="projects.html">Projets</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="../about.html">À propos</a></li>
+        <li><a href="../projects.html">Projets</a></li>
+        <li><a href="../contact.html">Contact</a></li>
       </ul>
     </div>
     <div>
@@ -164,7 +172,7 @@
   </div>
   <div class="container footer-bottom">
     <p>© <span data-current-year></span> Matthieu Dejoie</p>
-    <a href="legal.html">Mentions légales</a>
+    <a href="../legal.html">Mentions légales</a>
   </div>
 </footer>
 

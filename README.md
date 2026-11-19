@@ -24,13 +24,13 @@ Le portfolio est un **site statique**, écrit en HTML, CSS et JavaScript, sans f
 | Page | Contenu |
 | --- | --- |
 | [Accueil](index.html) | Présentation rapide, compétences et projets mis en avant |
-| [À propos](about.html) | Parcours, formation et expériences |
-| [Projets](projects.html) | Catalogue de 7 projets, avec recherche et filtres |
-| [Contact](contact.html) | Coordonnées et liens professionnels |
+| [À propos](pages/about.html) | Parcours, formation et expériences |
+| [Projets](pages/projects.html) | Catalogue de 7 projets, avec recherche et filtres |
+| [Contact](pages/contact.html) | Coordonnées et liens professionnels |
 
 **Fonctionnalités :** interface responsive, navigation mobile, filtres par catégorie et année, recherche de projets, galeries d’images et animations discrètes.
 
-> **Note :** le formulaire de contact est une démonstration côté navigateur : il ne transmet pas de messages à un serveur. Pour me contacter, privilégiez les coordonnées de la page [Contact](contact.html).
+> **Note :** le formulaire de contact est une démonstration côté navigateur : il ne transmet pas de messages à un serveur. Pour me contacter, privilégiez les coordonnées de la page [Contact](pages/contact.html).
 
 ## 🚀 Projets
 
@@ -38,13 +38,13 @@ Voici les **7 projets actuellement présentés** sur le site. Chaque fiche déta
 
 | Projet | Domaine | Description |
 | --- | --- | --- |
-| **[OccuPI v2](occupi-v2.html)** | IoT · Réseau · Vision par ordinateur | Mesure de l’occupation de salles avec Raspberry Pi, traitement local, MQTT et tableau de bord. |
-| **[Gestionnaire de trafic aérien](gestion-trafic-aerien.html)** | Développement web | Application Django de gestion des aéroports, pistes, compagnies, avions et vols. |
-| **[Réseau complet GNS3](reseau-gns3.html)** | Réseaux · Systèmes | Conception d’un réseau avec VLAN, routage, DHCP, services Linux et filtrage. |
-| **[Outil de traitement de données](outil-traitement-donnees.html)** | Python · Interfaces graphiques | Application PyQt5 d’analyse, de visualisation et de gestion de fichiers volumineux. |
-| **[Hygiène informatique](hygiene-informatique.html)** | Cybersécurité | Étude et mise en œuvre de bonnes pratiques de sécurité des postes. |
-| **[Dispositif de transmission](dispositif-transmission.html)** | Réseaux · Wi-Fi | Analyse et optimisation de la couverture et de l’infrastructure réseau d’un bâtiment. |
-| **[Site web Curriculum Vitae](site-web-cv.html)** | Développement web | Réalisation d’un CV interactif en HTML et CSS responsive. |
+| **[OccuPI v2](pages/projets/occupi-v2.html)** | IoT · Réseau · Vision par ordinateur | Mesure de l’occupation de salles avec Raspberry Pi, traitement local, MQTT et tableau de bord. |
+| **[Gestionnaire de trafic aérien](pages/projets/gestion-trafic-aerien.html)** | Développement web | Application Django de gestion des aéroports, pistes, compagnies, avions et vols. |
+| **[Réseau complet GNS3](pages/projets/reseau-gns3.html)** | Réseaux · Systèmes | Conception d’un réseau avec VLAN, routage, DHCP, services Linux et filtrage. |
+| **[Outil de traitement de données](pages/projets/outil-traitement-donnees.html)** | Python · Interfaces graphiques | Application PyQt5 d’analyse, de visualisation et de gestion de fichiers volumineux. |
+| **[Hygiène informatique](pages/projets/hygiene-informatique.html)** | Cybersécurité | Étude et mise en œuvre de bonnes pratiques de sécurité des postes. |
+| **[Dispositif de transmission](pages/projets/dispositif-transmission.html)** | Réseaux · Wi-Fi | Analyse et optimisation de la couverture et de l’infrastructure réseau d’un bâtiment. |
+| **[Site web Curriculum Vitae](pages/projets/site-web-cv.html)** | Développement web | Réalisation d’un CV interactif en HTML et CSS responsive. |
 
 ### Aperçus de réalisations
 
@@ -78,28 +78,32 @@ Ces technologies correspondent à des projets décrits dans le portfolio ; elles
 
 ```text
 Portfolio/
-├── index.html                   # Accueil
-├── about.html                   # Présentation
-├── projects.html                # Liste et filtres des projets
-├── contact.html                 # Coordonnées
-├── legal.html                   # Mentions légales
-├── occupi-v2.html               # Fiches de projets
-├── gestion-trafic-aerien.html
-├── reseau-gns3.html
-├── outil-traitement-donnees.html
-├── hygiene-informatique.html
-├── dispositif-transmission.html
-├── site-web-cv.html
+├── index.html                       # Accueil (GitHub Pages)
+├── pages/
+│   ├── about.html                   # Présentation
+│   ├── projects.html                # Catalogue et filtres
+│   ├── contact.html                 # Coordonnées
+│   ├── legal.html                   # Mentions légales
+│   └── projets/
+│       ├── occupi-v2.html
+│       ├── gestion-trafic-aerien.html
+│       ├── reseau-gns3.html
+│       ├── outil-traitement-donnees.html
+│       ├── hygiene-informatique.html
+│       ├── dispositif-transmission.html
+│       └── site-web-cv.html
 ├── assets/
-│   ├── images/                  # Illustrations et captures
-│   └── documents/               # CV et documents de projets
-├── style.css                    # Styles du site
-├── script.js                    # Interactions côté navigateur
+│   ├── css/
+│   │   └── style.css                # Styles
+│   ├── js/
+│   │   └── script.js                # Interactions
+│   ├── images/                      # Images et captures
+│   └── documents/                   # CV et rapports
 ├── .gitignore
 └── README.md
 ```
 
-Les pages HTML sont volontairement **conservées à la racine** afin de préserver les chemins relatifs et de faciliter un hébergement statique.
+La page **`index.html` reste à la racine** pour GitHub Pages. Les pages de navigation sont regroupées dans `pages/`, les fiches dans `pages/projets/` et les ressources partagées dans `assets/`. Tous les chemins internes sont relatifs à leur page.
 
 ## 💻 Lancer le site en local
 
@@ -135,16 +139,16 @@ Ce dépôt est compatible avec **GitHub Pages** en mode « Deploy from a branch 
 
 ## ✏️ Mettre à jour le portfolio
 
-- **Ajouter un projet :** créer sa fiche `.html`, puis ajouter une carte dans `projects.html` avec les attributs `data-category`, `data-year` et `data-search`.
+- **Ajouter un projet :** créer sa fiche dans `pages/projets/`, puis ajouter une carte dans `pages/projects.html` avec les attributs `data-category`, `data-year` et `data-search`.
 - **Ajouter une image ou un document :** placer le fichier dans `assets/images/` ou `assets/documents/`, puis vérifier son chemin.
 - **Mettre en avant un projet :** modifier la section dédiée dans `index.html` ; ajuster les compteurs si nécessaire.
-- **Modifier le design ou les interactions :** utiliser respectivement `style.css` et `script.js`.
+- **Modifier le design ou les interactions :** utiliser respectivement `assets/css/style.css` et `assets/js/script.js`.
 
 ## 📬 Contact
 
 - **GitHub :** [@Grenat-404](https://github.com/Grenat-404)
 - **LinkedIn :** [Matthieu Dejoie](https://www.linkedin.com/in/matthieu-dejoie-33211433b/)
-- **Coordonnées :** [page Contact du portfolio](contact.html)
+- **Coordonnées :** [page Contact du portfolio](pages/contact.html)
 
 ---
 
