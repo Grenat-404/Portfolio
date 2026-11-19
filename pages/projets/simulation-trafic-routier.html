@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SAÉ 3.02 : simulation de trafic routier en Python et PyQt6 avec architecture client-serveur TCP/UDP, gestion des urgences, cartes OpenStreetMap hors ligne et statistiques SQLite.">
+  <title>e-Portfolio - Simulation de trafic routier | Matthieu Dejoie</title>
+  <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="../../assets/js/script.js" defer></script>
+</head>
+<body class="project-personal">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header" data-header>
+  <nav class="container navbar" aria-label="Navigation principale">
+    <a class="brand" href="../../index.html" aria-label="Accueil du portfolio">
+      <span class="brand-mark" aria-hidden="true">P</span>
+      <span>Portfolio</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" data-menu-toggle>
+      <span class="sr-only">Ouvrir le menu</span>
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="main-menu" data-menu>
+      <li><a  href="../../index.html">Accueil</a></li>
+      <li><a  href="../about.html">À propos</a></li>
+      <li><a class="active" aria-current="page" href="../projects.html">Projets</a></li>
+      <li><a  href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+  <main id="contenu">
+    <section class="project-hero section">
+      <div class="container">
+        <a class="back-link" href="../projects.html">← Retour aux projets</a>
+        <div class="project-title-block reveal">
+          <div>
+            <p class="eyebrow">Programmation · Réseaux · 2026</p>
+            <h1>Simulation de trafic routier</h1>
+            <p>Une application Python communicante qui simule la circulation, régule les carrefours et facilite le passage des véhicules d’urgence, sur une carte prédéfinie ou un réseau OpenStreetMap hors ligne.</p>
+          </div>
+          <ul class="project-stat-list">
+            <li><span>Projet</span><strong>SAÉ 3.02</strong></li>
+            <li><span>Formation</span><strong>BUT R&amp;T</strong></li>
+            <li><span>Équipe</span><strong>2 étudiants</strong></li>
+          </ul>
+        </div>
+        <div class="project-cover reveal">
+          <img src="../../assets/images/projet-sae302-trafic.svg" alt="Illustration schématique du projet avec carrefour, véhicules, feux, passages piétons et modules client-serveur" width="1280" height="720">
+        </div>
+      </div>
+    </section>
+    <section class="section section-muted">
+      <div class="container case-study-layout">
+        <aside class="case-study-nav reveal" aria-label="Sommaire du projet">
+          <p>Sommaire</p>
+          <a href="#contexte">Contexte</a>
+          <a href="#objectifs">Objectifs</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#fonctionnalites">Fonctionnalités</a>
+          <a href="#demarche">Réalisation</a>
+          <a href="#contributions">Mes contributions</a>
+          <a href="#resultats">Résultats et bilan</a>
+          <a href="#ressources">Ressources</a>
+        </aside>
+        <article class="case-study-content prose">
+          <section id="contexte">
+            <p class="eyebrow">01 — Contexte</p>
+            <h2>Simuler la circulation et donner la priorité aux secours</h2>
+            <p>Développé dans le cadre de la SAÉ 3.02 « Développer des applications communicantes » du BUT Réseaux &amp; Télécommunications à l’IUT de Colmar, ce projet consistait à concevoir une simulation routière interactive en Python.</p>
+            <p>Notre binôme, <strong>Les Jurassic Pâte</strong> — Matthieu Dejoie et Jacques Roulier — a travaillé sur un système combinant véhicules, feux, piétons et interventions prioritaires. L’un des enjeux principaux était de coordonner les comportements de la circulation tout en séparant la logique de simulation de son affichage.</p>
+          </section>
+          <section id="objectifs">
+            <p class="eyebrow">02 — Objectifs</p>
+            <h2>Les défis techniques</h2>
+            <ul class="check-list">
+              <li>Reproduire les déplacements de véhicules et la régulation d’un carrefour.</li>
+              <li>Créer une interface permettant de déclencher des interventions d’urgence et d’adapter le trafic en conséquence.</li>
+              <li>Faire fonctionner la simulation sur deux machines : serveur pour la logique, client pour l’affichage et les commandes.</li>
+              <li>Utiliser des cartes OpenStreetMap locales pour gérer différents carrefours et des itinéraires multi-intersections.</li>
+              <li>Enregistrer les simulations et leurs statistiques afin d’analyser les résultats.</li>
+            </ul>
+          </section>
+          <section id="architecture">
+            <p class="eyebrow">03 — Architecture</p>
+            <h2>Un moteur de simulation séparé de l’interface</h2>
+            <div class="process-grid">
+              <div><span>01</span><h3>Serveur Python</h3><p>Exécute la logique : déplacements, feux, priorités, urgences, cartes OSM et enregistrement des statistiques SQLite.</p></div>
+              <div><span>02</span><h3>Client PyQt6</h3><p>Affiche la circulation, permet de sélectionner une carte et propose un panneau pour préparer et envoyer les demandes d’urgence.</p></div>
+              <div><span>03</span><h3>Communication réseau</h3><p>Utilise UDP pour découvrir automatiquement le serveur et TCP pour échanger les commandes et les états de simulation au format JSON.</p></div>
+              <div><span>04</span><h3>Données locales</h3><p>Charge les cartes <code>.osm</code> hors ligne et conserve dans SQLite l’historique des simulations, leurs résultats et les urgences.</p></div>
+            </div>
+            <p>Cette séparation permet de lancer les deux rôles sur une même machine ou sur deux machines virtuelles connectées au même réseau.</p>
+          </section>
+          <section id="fonctionnalites">
+            <p class="eyebrow">04 — Fonctionnalités</p>
+            <h2>Du carrefour de test à un réseau routier</h2>
+            <ul class="check-list">
+              <li><strong>Carrefour prédéfini :</strong> trafic aléatoire, cycles de feux, parking, passages piétons et véhicules d’urgence.</li>
+              <li><strong>Priorité aux secours :</strong> déclenchement d’interventions depuis le client et adaptation du comportement des véhicules ordinaires.</li>
+              <li><strong>OpenStreetMap :</strong> sélection de fichiers <code>.osm</code> embarqués, détection des intersections et prise en compte des sens uniques.</li>
+              <li><strong>Itinéraires :</strong> calcul de trajets sur un graphe routier au moyen de l’algorithme de Dijkstra.</li>
+              <li><strong>Suivi :</strong> conservation de la durée, des volumes de trafic et du nombre de demandes d’urgence dans SQLite.</li>
+            </ul>
+          </section>
+          <section id="demarche">
+            <p class="eyebrow">05 — Démarche</p>
+            <h2>Construire progressivement une application communicante</h2>
+            <div class="process-grid">
+              <div><span>01</span><h3>Simulation initiale</h3><p>Mise en place du carrefour, des véhicules et de la régulation par les feux.</p></div>
+              <div><span>02</span><h3>Gestion des urgences</h3><p>Ajout de véhicules prioritaires, d’un panneau de commande et de règles de circulation adaptées.</p></div>
+              <div><span>03</span><h3>Deux machines</h3><p>Séparation du moteur et de l’interface, protocole d’échange TCP/UDP et découverte automatique du serveur.</p></div>
+              <div><span>04</span><h3>Cartes et validation</h3><p>Intégration OSM hors ligne, réseau multi-carrefours, stockage SQLite et tests ciblés.</p></div>
+            </div>
+          </section>
+          <section>
+            <p class="eyebrow">Environnement technique</p>
+            <h2>Technologies et outils</h2>
+            <ul class="tag-list tag-list-large">
+              <li>Python 3</li><li>PyQt6</li><li>Qt Graphics</li><li>Sockets TCP / UDP</li><li>JSON</li><li>OpenStreetMap</li><li>Dijkstra</li><li>SQLite3</li><li>Linux / Debian</li><li>Git &amp; GitHub</li>
+            </ul>
+          </section>
+          <section id="contributions">
+            <p class="eyebrow">06 — Travail en équipe</p>
+            <h2>Mes contributions au projet</h2>
+            <p>Dans cette réalisation en binôme avec Jacques Roulier, j’ai notamment travaillé sur les parties suivantes :</p>
+            <ul class="check-list">
+              <li>La gestion des <strong>véhicules prioritaires</strong> et leur pilotage depuis l’interface graphique.</li>
+              <li>La mise en place de l’architecture <strong>client-serveur</strong> et des échanges entre machines.</li>
+              <li>L’intégration du mode <strong>OpenStreetMap</strong> et la mise en relation des cartes avec la simulation.</li>
+              <li>Les tests, l’intégration des fonctionnalités et la préparation du fonctionnement sur deux VM.</li>
+            </ul>
+            <p>La logique du carrefour, les feux, la circulation et les améliorations de la simulation ont été développés et intégrés collectivement, avec une répartition des tâches au sein du binôme.</p>
+          </section>
+          <section id="resultats">
+            <p class="eyebrow">07 — Résultats et apprentissages</p>
+            <h2>Une simulation avec deux modes et un historique des résultats</h2>
+            <ul class="check-list">
+              <li>Une application PyQt6 avec un mode carrefour prédéfini et un mode cartographique hors ligne.</li>
+              <li>Un client qui peut découvrir le serveur et afficher l’état de la circulation.</li>
+              <li>Un panneau d’urgence pour déclencher des interventions prioritaires.</li>
+              <li>Une base SQLite côté serveur regroupant les tables <code>simulations</code>, <code>statistiques</code> et <code>urgences</code>.</li>
+              <li>Des tests unitaires consacrés notamment au réseau, aux urgences, aux cartes OSM et aux statistiques.</li>
+            </ul>
+            <p>Ce projet m’a permis de renforcer mes compétences en <strong>programmation orientée objet, interfaces graphiques, communication réseau, intégration de composants et débogage collaboratif</strong>. Il m’a aussi confronté aux contraintes de synchronisation entre l’affichage et un moteur de simulation distant.</p>
+          </section>
+          <section id="ressources">
+            <p class="eyebrow">08 — Ressources</p>
+            <h2>Consulter le code et les livrables</h2>
+            <p>Le dépôt GitHub rassemble les sources, les cartes de démonstration, le guide d’installation et les tests. Les documents de bilan et le cahier des charges y sont également disponibles.</p>
+            <div class="project-links">
+              <a class="button button-primary" href="https://github.com/Grenat-404/SAE3.02" target="_blank" rel="noopener noreferrer">Voir le code sur GitHub ↗</a>
+              <a class="button button-secondary" href="https://github.com/Grenat-404/SAE3.02/blob/main/Bilan_Projet.pdf" target="_blank" rel="noopener noreferrer">Bilan du projet ↗</a>
+              <a class="button button-secondary" href="https://github.com/Grenat-404/SAE3.02/blob/main/README.md" target="_blank" rel="noopener noreferrer">Notice d’installation ↗</a>
+            </div>
+            <p><small>Illustration d’en-tête : représentation schématique originale du carrefour, et non capture de l’application.</small></p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand footer-brand" href="../../index.html">
+        <span class="brand-mark">MD</span>
+        <span>Portfolio</span>
+      </a>
+      <p>Portfolio personnel de Matthieu Dejoie.</p>
+    </div>
+    <div>
+      <h2>Navigation</h2>
+      <ul>
+        <li><a href="../about.html">À propos</a></li>
+        <li><a href="../projects.html">Projets</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Réseaux</h2>
+      <ul>
+        <li><a href="https://github.com/Grenat-404" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/matthieu-dejoie-33211433b/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/mtt_2joy/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© <span data-current-year></span> Matthieu Dejoie</p>
+    <a href="../legal.html">Mentions légales</a>
+  </div>
+</footer>
+</body>
+</html>

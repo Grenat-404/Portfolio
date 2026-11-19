@@ -25,7 +25,7 @@ Le portfolio est un **site statique**, écrit en HTML, CSS et JavaScript, sans f
 | --- | --- |
 | [Accueil](index.html) | Présentation rapide, compétences et projets mis en avant |
 | [À propos](pages/about.html) | Parcours, formation et expériences |
-| [Projets](pages/projects.html) | Catalogue de 7 projets, avec recherche et filtres |
+| [Projets](pages/projects.html) | Catalogue de 8 projets, avec recherche et filtres |
 | [Contact](pages/contact.html) | Coordonnées et liens professionnels |
 
 **Fonctionnalités :** interface responsive, navigation mobile, filtres par catégorie et année, recherche de projets, galeries d’images et animations discrètes.
@@ -34,11 +34,11 @@ Le portfolio est un **site statique**, écrit en HTML, CSS et JavaScript, sans f
 
 ## 🚀 Projets
 
-Voici les **7 projets actuellement présentés** sur le site. Chaque fiche détaille le contexte, les outils et les réalisations.
+Voici les **8 projets actuellement présentés** sur le site. Chaque fiche détaille le contexte, les outils et les réalisations.
 
 | Projet | Domaine | Description |
 | --- | --- | --- |
-| **[OccuPI v2](pages/projets/occupi-v2.html)** | IoT · Réseau · Vision par ordinateur | Mesure de l’occupation de salles avec Raspberry Pi, traitement local, MQTT et tableau de bord. |
+| **[Simulation de trafic routier](pages/projets/simulation-trafic-routier.html)** | Python · Réseaux · Simulation | Application PyQt6 client-serveur avec gestion des urgences, cartes OSM hors ligne et statistiques SQLite. [Code source](https://github.com/Grenat-404/SAE3.02). |\n| **[OccuPI v2](pages/projets/occupi-v2.html)** | IoT · Réseau · Vision par ordinateur | Mesure de l’occupation de salles avec Raspberry Pi, traitement local, MQTT et tableau de bord. |
 | **[Gestionnaire de trafic aérien](pages/projets/gestion-trafic-aerien.html)** | Développement web | Application Django de gestion des aéroports, pistes, compagnies, avions et vols. |
 | **[Réseau complet GNS3](pages/projets/reseau-gns3.html)** | Réseaux · Systèmes | Conception d’un réseau avec VLAN, routage, DHCP, services Linux et filtrage. |
 | **[Outil de traitement de données](pages/projets/outil-traitement-donnees.html)** | Python · Interfaces graphiques | Application PyQt5 d’analyse, de visualisation et de gestion de fichiers volumineux. |
@@ -67,10 +67,10 @@ Voici les **7 projets actuellement présentés** sur le site. Chaque fiche déta
 
 **Technologies présentées dans les projets :**
 
-- **Développement :** Python, PyQt5, Django, HTML/CSS, JavaScript
-- **Réseaux & systèmes :** TCP/IP, VLAN, DHCP, routage, GNS3, Linux
+- **Développement :** Python, PyQt5, PyQt6, Django, HTML/CSS, JavaScript
+- **Réseaux & systèmes :** TCP/IP, sockets TCP/UDP, OpenStreetMap, VLAN, DHCP, routage, GNS3, Linux
 - **Cybersécurité :** sécurité des postes, contrôle d’accès, bonnes pratiques
-- **IoT & services :** Raspberry Pi, MQTT, Docker, bases de données
+- **IoT & services :** Raspberry Pi, MQTT, Docker, SQLite, bases de données
 
 Ces technologies correspondent à des projets décrits dans le portfolio ; elles ne constituent pas des dépendances nécessaires au fonctionnement de ce site.
 
@@ -85,7 +85,7 @@ Portfolio/
 │   ├── contact.html                 # Coordonnées
 │   ├── legal.html                   # Mentions légales
 │   └── projets/
-│       ├── occupi-v2.html
+│       ├── simulation-trafic-routier.html\n│       ├── occupi-v2.html
 │       ├── gestion-trafic-aerien.html
 │       ├── reseau-gns3.html
 │       ├── outil-traitement-donnees.html
