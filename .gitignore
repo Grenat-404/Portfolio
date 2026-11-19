@@ -1,1 +1,25 @@
+# Fichiers système
 .DS_Store
+Thumbs.db
+Desktop.ini
+
+# Éditeurs et fichiers temporaires
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environnements et caches locaux
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+dist/
+build/
+
+# Configuration privée locale
+.env
+.env.*
+!.env.example
