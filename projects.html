@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Projets de développement, de réseau, de cybersécurité et d’IoT de Matthieu Dejoie." name="description"/>
+<title>e-Portfolio - Projets de Matthieu Dejoie</title>
+<link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="style.css" rel="stylesheet"/>
+<script defer="" src="script.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<header class="site-header" data-header="">
+<nav aria-label="Navigation principale" class="container navbar">
+<a class="brand" href="index.html"><span class="brand-mark">P</span><span>Portfolio</span></a>
+<button aria-controls="main-menu" aria-expanded="false" class="menu-toggle" data-menu-toggle="" type="button"><span class="sr-only">Ouvrir le menu</span><span></span><span></span><span></span></button>
+<ul class="nav-links" data-menu="" id="main-menu"><li><a href="index.html">Accueil</a></li><li><a href="about.html">À propos</a></li><li><a class="active" href="projects.html">Projets</a></li><li><a href="contact.html">Contact</a></li></ul>
+</nav>
+</header>
+<main id="contenu">
+<section class="page-hero section">
+<div class="container narrow reveal">
+<p class="eyebrow">Projets</p>
+<h1>Développement, réseaux, cybersécurité et IoT.</h1>
+<p>Une sélection de réalisations menées au cours de ma formation.</p>
+</div>
+</section>
+<section class="section section-muted">
+<div class="container">
+<!-- MODIFIER : les options doivent correspondre aux data-category et data-year des cartes -->
+<form aria-label="Filtres de projets" class="project-filters reveal" data-project-filters="">
+<label class="filter-field"><span>Rechercher</span><input data-filter-search="" placeholder="Titre, outil, mot-clé…" type="search"/></label>
+<label class="filter-field"><span>Catégorie</span><select data-filter-category="">
+<option value="all">Toutes</option>
+<option value="web">Web</option>
+<option value="programmation">Programmation</option>
+<option value="reseau">Réseau</option>
+<option value="cybersecurite">Cybersécurité</option>
+</select></label>
+<label class="filter-field"><span>Année</span><select data-filter-year="">
+<option value="all">Toutes</option>
+<option value="2026">2026</option>
+<option value="2025">2025</option>
+<option value="2024">2024</option>
+</select></label>
+<button class="button button-secondary filter-reset" data-filter-reset="" type="reset">Réinitialiser</button>
+</form>
+<div class="results-line reveal"><p><strong data-results-count="">7</strong> projet(s) affiché(s)</p></div>
+<div class="projects-grid" data-project-grid=""><article class="project-card reveal project-card-occupi" data-category="reseau" data-project-card="" data-search="OccuPI v2 IoT Raspberry Pi YOLO MQTT Node.js Next.js PostgreSQL Docker" data-year="2026">
+<a aria-label="Découvrir OccuPI v2" class="project-image" href="occupi-v2.html">
+<img alt="Projet OccuPI v2" src="assets/images/occupi-hero.jpg"/>
+</a>
+<div class="project-body">
+<div class="project-meta"><span>IoT / Réseau</span><span>2026</span></div>
+<h2><a href="occupi-v2.html">OccuPI v2</a></h2>
+<p>Système de mesure de l’occupation des salles associant Raspberry Pi, vision par ordinateur, MQTT et dashboard.</p>
+<ul class="tag-list"><li>Raspberry Pi</li><li>MQTT</li><li>Docker</li></ul>
+</div>
+</article><article class="project-card reveal" data-category="web" data-project-card="" data-search="Gestionnaire de trafic aérien Django Python HTML &amp; CSS MariaDB Nginx Gunicorn Web / Django" data-year="2025">
+<a aria-label="Découvrir le projet Gestionnaire de trafic aérien" class="project-image" href="gestion-trafic-aerien.html">
+<img alt="Aperçu du projet Gestionnaire de trafic aérien" src="assets/images/projet-trafic-aerien.jpg"/>
+</a>
+<div class="project-body">
+<div class="project-meta">
+<span>Web / Django</span>
+<span>2025</span>
+</div>
+<h2><a href="gestion-trafic-aerien.html">Gestionnaire de trafic aérien</a></h2>
+<p>Application Django permettant de gérer les aéroports, les pistes, les compagnies, les avions et les vols.</p>
+<ul class="tag-list">
+<li>Django</li><li>Python</li><li>HTML &amp; CSS</li>
+</ul>
+</div>
+</article><article class="project-card reveal" data-category="web" data-project-card="" data-search="Site web Curriculum Vitae HTML5 CSS3 Flexbox Grid Responsive Design Développement web" data-year="2024">
+<a aria-label="Découvrir le projet Site web Curriculum Vitae" class="project-image" href="site-web-cv.html">
+<img alt="Aperçu du projet Site web Curriculum Vitae" src="assets/images/projet-site-cv.jpg"/>
+</a>
+<div class="project-body">
+<div class="project-meta">
+<span>Développement web</span>
+<span>2024</span>
+</div>
+<h2><a href="site-web-cv.html">Site web Curriculum Vitae</a></h2>
+<p>Conception d’un CV sous forme de site web responsive et accessible.</p>
+<ul class="tag-list">
+<li>HTML5</li><li>CSS3</li><li>Flexbox</li>
+</ul>
+</div>
+</article><article class="project-card reveal" data-category="programmation" data-project-card="" data-search="Outil de traitement de données Python Pathlib PyQt5 PyQtChart PowerShell JSON Programmation" data-year="2025">
+<a aria-label="Découvrir le projet Outil de traitement de données" class="project-image" href="outil-traitement-donnees.html">
+<img alt="Aperçu du projet Outil de traitement de données" src="assets/images/projet-traitement-donnees.jpg"/>
+</a>
+<div class="project-body">
+<div class="project-meta">
+<span>Programmation</span>
+<span>2025</span>
+</div>
+<h2><a href="outil-traitement-donnees.html">Outil de traitement de données</a></h2>
+<p>Outil Python doté d’une interface PyQt5 pour détecter, visualiser et supprimer de manière sécurisée les fichiers volumineux.</p>
+<ul class="tag-list">
+<li>Python</li><li>Pathlib</li><li>PyQt5</li>
+</ul>
+</div>
+</article><article class="project-card reveal" data-category="reseau" data-project-card="" data-search="Dispositif de transmission Wi-Fi 2,4 GHz Wi-Fi 5 GHz RJ45 Cat 6a PoE Cisco Acrylic Packet Tracer Réseau / Wi-Fi" data-year="2024">
+<a aria-label="Découvrir le projet Dispositif de transmission" class="project-image" href="dispositif-transmission.html">
+<img alt="Aperçu du projet Dispositif de transmission" src="assets/images/projet-transmission.jpg"/>
+</a>
+<div class="project-body">
+<div class="project-meta">
+<span>Réseau / Wi-Fi</span>
+<span>2024</span>
+</div>
+<h2><a href="dispositif-transmission.html">Dispositif de transmission</a></h2>
+<p>Analyse et optimisation d’un réseau Wi-Fi dans le bâtiment C, du câblage physique jusqu’à la simulation.</p>
+<ul class="tag-list">
+<li>Wi-Fi 2,4 GHz</li><li>Wi-Fi 5 GHz</li><li>RJ45 Cat 6a</li>
+</ul>
+</div>
+</article><article class="project-card reveal" data-category="cybersecurite" data-project-card="" data-search="Hygiène informatique Antivirus Antimalware PowerShell GPO Logs de sécurité Cybersécurité" data-year="2024">
+<a aria-label="Découvrir le projet Hygiène informatique" class="project-image" href="hygiene-informatique.html">
+<img alt="Aperçu du projet Hygiène informatique" src="assets/images/projet-hygiene-informatique.jpg"/>
+</a>
+<div class="project-body">
+<div class="project-meta">
+<span>Cybersécurité</span>
+<span>2024</span>
+</div>
+<h2><a href="hygiene-informatique.html">Hygiène informatique</a></h2>
+<p>Analyse des bonnes pratiques de sécurité et mise en place d’un protocole d’hygiène pour les postes utilisateurs.</p>
+<ul class="tag-list">
+<li>Antivirus</li><li>Antimalware</li><li>PowerShell</li>
+</ul>
+</div>
+</article><article class="project-card reveal" data-category="reseau" data-project-card="" data-search="Réseau complet GNS3 GNS3 Cisco 3660 VLAN STP RIP v2 DHCP Debian ACL Réseau" data-year="2025">
+<a aria-label="Découvrir le projet Réseau complet GNS3" class="project-image" href="reseau-gns3.html">
+<img alt="Aperçu du projet Réseau complet GNS3" src="assets/images/projet-reseau-gns3.jpg"/>
+</a>
+<div class="project-body">
+<div class="project-meta">
+<span>Réseau</span>
+<span>2025</span>
+</div>
+<h2><a href="reseau-gns3.html">Réseau complet GNS3</a></h2>
+<p>Conception et sécurisation d’un réseau local complet avec VLAN, routage, DHCP, services Linux et règles de filtrage.</p>
+<ul class="tag-list">
+<li>GNS3</li><li>Cisco 3660</li><li>VLAN</li>
+</ul>
+</div>
+</article></div>
+<div class="empty-state" data-empty-state="" hidden=""><h2>Aucun projet trouvé</h2><p>Essayez de modifier ou de réinitialiser les filtres.</p></div>
+</div>
+</section>
+</main>
+<footer class="site-footer"><div class="container footer-grid"><div><a class="brand footer-brand" href="index.html"><span class="brand-mark">P</span><span>Portfolio</span></a><p>Portfolio personnel de Matthieu Dejoie.</p></div><div><h2>Navigation</h2><ul><li><a href="about.html">À propos</a></li><li><a href="projects.html">Projets</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><h2>Réseaux</h2><ul><li><a href="https://github.com/Grenat-404" rel="noopener noreferrer" target="_blank">GitHub</a></li><li><a href="https://www.linkedin.com/in/matthieu-dejoie-33211433b/" rel="noopener noreferrer" target="_blank">LinkedIn</a></li><li><a href="https://www.instagram.com/mtt_2joy/" rel="noopener noreferrer" target="_blank">Instagram</a></li></ul></div></div><div class="container footer-bottom"><p>© <span data-current-year=""></span> Matthieu Dejoie</p><a href="legal.html">Mentions légales</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Présentation complète d’OccuPI v2 : système IoT de mesure d’occupation des salles associant Raspberry Pi, vision par ordinateur, MQTT, serveur, dashboard, sécurité, déploiement et conception 3D." name="description"/>
+<title>e-Portfolio - OccuPI v2</title>
+<!-- Ces fichiers sont déjà présents à la racine de ton portfolio -->
+<link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="style.css" rel="stylesheet"/>
+<script defer="" src="script.js"></script>
+</head>
+<body class="project-occupi">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<!-- =====================================================
+       EN-TÊTE IDENTIQUE AUX AUTRES PAGES DU PORTFOLIO
+  ====================================================== -->
+<header class="site-header" data-header="">
+<nav aria-label="Navigation principale" class="container navbar">
+<a class="brand" href="index.html"><span class="brand-mark">P</span><span>Portfolio</span></a>
+<button aria-controls="main-menu" aria-expanded="false" class="menu-toggle" data-menu-toggle="" type="button"><span class="sr-only">Ouvrir le menu</span><span></span><span></span><span></span></button>
+<ul class="nav-links" data-menu="" id="main-menu"><li><a href="index.html">Accueil</a></li><li><a href="about.html">À propos</a></li><li><a aria-current="page" class="active" href="projects.html">Projets</a></li><li><a href="contact.html">Contact</a></li></ul>
+</nav>
+</header>
+<main id="contenu">
+<!-- =====================================================
+         PRÉSENTATION DU PROJET
+    ====================================================== -->
+<section class="occupi-showcase section">
+<div class="container">
+<a class="back-link" href="projects.html">← Retour aux projets</a>
+<div class="occupi-showcase-frame reveal">
+<img alt="Modélisation 3D des boîtiers OccuPI" class="occupi-showcase-image" src="assets/images/occupi-hero.jpg"/>
+<div aria-hidden="true" class="occupi-showcase-overlay"></div>
+<div class="occupi-showcase-copy">
+<p class="eyebrow">IoT · Vision par ordinateur · Réseau · 2026</p>
+<h1>OccuPI v2</h1>
+<p>
+          Un système complet de mesure de l’occupation des salles associant
+          Raspberry Pi, détection locale, MQTT, services serveur et dashboard.
+        </p>
+</div>
+</div>
+<ul aria-label="Informations sur le projet" class="occupi-showcase-meta reveal">
+<li>
+<span>Nature</span>
+<strong>Projet IoT pluridisciplinaire</strong>
+</li>
+<li>
+<span>Durée</span>
+<strong>1 semestre</strong>
+</li>
+<li>
+<span>Équipe</span>
+<strong>6 personnes</strong>
+</li>
+</ul>
+</div>
+</section>
+<!-- =====================================================
+         ÉTUDE DE CAS
+    ====================================================== -->
+<section class="section section-muted">
+<div class="container case-study-layout">
+<aside aria-label="Sommaire du projet" class="case-study-nav reveal">
+<p>Sommaire</p>
+<a href="#contexte">Contexte</a>
+<a href="#objectifs">Objectifs</a>
+<a href="#fonctionnement">Fonctionnement</a>
+<a href="#architecture">Architecture</a>
+<a href="#competences">Compétences</a>
+<a href="#securite">Sécurité</a>
+<a href="#realisation">Réalisation</a>
+<a href="#resultats">Résultats</a>
+<a href="#apprentissages">Apprentissages</a>
+<a href="#galerie">Galerie</a><a href="#documentation">Documentation</a>
+</aside>
+<article class="case-study-content prose">
+<section id="contexte">
+<p class="eyebrow">01 — Contexte</p>
+<h2>Faire évoluer un prototype vers un système exploitable à l’échelle de l’université</h2>
+<p>
+    OccuPI v2 est la seconde version d’un système conçu pour mesurer
+    l’occupation des amphithéâtres et des laboratoires de la Hochschule
+    Furtwangen. Le projet reprend une première base fonctionnelle et la fait
+    évoluer afin de mieux répondre aux besoins de déploiement, de maintenance,
+    de sécurité et de montée en charge.
+  </p>
+<p>
+    Chaque salle peut être surveillée par un ou plusieurs
+    <strong>SenseNodes</strong>. Un SenseNode est composé d’un Raspberry Pi 5,
+    d’une caméra et d’un boîtier imprimé en 3D. L’appareil détecte les personnes
+    localement, puis transmet uniquement une valeur d’occupation au serveur
+    central.
+  </p>
+</section>
+<section id="objectifs">
+<p class="eyebrow">02 — Objectifs</p>
+<h2>Construire une solution complète, modulaire et déployable</h2>
+<ul class="check-list">
+<li>
+      Éviter les doubles comptages lorsque plusieurs caméras sont installées
+      dans une même salle.
+    </li>
+<li>
+      Permettre la définition de zones de détection adaptées à la géométrie des
+      locaux.
+    </li>
+<li>
+      Reconcevoir l’architecture serveur pour traiter les données d’un grand
+      nombre d’appareils.
+    </li>
+<li>
+      Simplifier l’installation grâce à une image Raspberry Pi préconfigurée et
+      reproductible.
+    </li>
+<li>
+      Centraliser la gestion des appareils, des salles, des utilisateurs, des
+      alertes et des exports.
+    </li>
+<li>
+      Renforcer la protection des données, des communications et des appareils.
+    </li>
+<li>
+      Adapter le matériel et le boîtier aux contraintes d’une installation
+      durable.
+    </li>
+<li>
+      Vérifier le fonctionnement du système lors d’un test en conditions
+      réelles.
+    </li>
+</ul>
+</section>
+<section id="fonctionnement">
+<p class="eyebrow">03 — Fonctionnement global</p>
+<h2>De la caméra jusqu’au tableau de bord</h2>
+<div class="process-grid">
+<div>
+<span>01</span>
+<h3>Acquisition</h3>
+<p>
+        Le SenseNode capture une image au moyen de la caméra connectée au
+        Raspberry Pi 5.
+      </p>
+</div>
+<div>
+<span>02</span>
+<h3>Détection locale</h3>
+<p>
+        Un modèle YOLO détecte les personnes dans une zone polygonale définie
+        pendant l’onboarding.
+      </p>
+</div>
+<div>
+<span>03</span>
+<h3>Transmission</h3>
+<p>
+        Le nombre de personnes, l’état de disponibilité et la télémétrie sont
+        publiés via MQTT/TLS.
+      </p>
+</div>
+<div>
+<span>04</span>
+<h3>Traitement serveur</h3>
+<p>
+        SenseFlow traite les messages, agrège les mesures et enregistre les
+        données dans PostgreSQL.
+      </p>
+</div>
+<div>
+<span>05</span>
+<h3>Administration</h3>
+<p>
+        SenseCore gère l’API, l’onboarding, la configuration et le cycle de vie
+        des appareils.
+      </p>
+</div>
+<div>
+<span>06</span>
+<h3>Visualisation</h3>
+<p>
+        SenseBoard affiche l’état du système, les salles, les appareils, les
+        alertes, les analyses et les exports.
+      </p>
+</div>
+</div>
+</section>
+<section id="architecture">
+<p class="eyebrow">04 — Architecture technique</p>
+<h2>Une plateforme composée de plusieurs services spécialisés</h2>
+<p>
+    L’architecture sépare les responsabilités entre les appareils embarqués,
+    les services applicatifs et les composants d’infrastructure. Cette
+    organisation facilite la maintenance, les tests et l’évolution indépendante
+    de chaque partie.
+  </p>
+<div class="process-grid">
+<div>
+<span>EDGE</span>
+<h3>SenseNode</h3>
+<p>
+        Raspberry Pi 5, caméra, Python, détection YOLO, modes de fonctionnement,
+        télémétrie système et publication MQTT.
+      </p>
+</div>
+<div>
+<span>API</span>
+<h3>SenseCore</h3>
+<p>
+        API Node.js et TypeScript chargée de l’onboarding, de la configuration,
+        des appareils, des salles et des commandes.
+      </p>
+</div>
+<div>
+<span>FLOW</span>
+<h3>SenseFlow</h3>
+<p>
+        Service événementiel qui reçoit les messages MQTT, contrôle les données,
+        met à jour les états et alimente la base.
+      </p>
+</div>
+<div>
+<span>UI</span>
+<h3>SenseBoard</h3>
+<p>
+        Dashboard Next.js permettant de gérer les appareils, les utilisateurs,
+        les salles, les exports et les notifications.
+      </p>
+</div>
+<div>
+<span>DATA</span>
+<h3>PostgreSQL</h3>
+<p>
+        Stockage des mesures, des informations système, des configurations, des
+        utilisateurs et des données nécessaires au broker.
+      </p>
+</div>
+<div>
+<span>MQTT</span>
+<h3>EMQX et NGINX</h3>
+<p>
+        Broker de messages, contrôle des droits par topic, reverse proxy,
+        terminaison TLS et point d’entrée réseau du système.
+      </p>
+</div>
+</div>
+</section>
+<section id="competences">
+<p class="eyebrow">05 — Compétences mobilisées</p>
+<h2>Un projet à la croisée de plusieurs domaines</h2>
+<p>
+    Même si les tâches étaient réparties dans l’équipe, le projet nécessitait de
+    comprendre les interactions entre toutes les briques. Le suivi du
+    développement, les échanges techniques et la documentation m’ont permis
+    d’acquérir une vision d’ensemble du système.
+  </p>
+<div class="process-grid">
+<div>
+<span>01</span>
+<h3>IoT et systèmes embarqués</h3>
+<p>
+        Raspberry Pi 5, Pi Camera, fonctionnement headless, services systemd,
+        télémétrie et contraintes d’un appareil installé sur site.
+      </p>
+</div>
+<div>
+<span>02</span>
+<h3>Vision par ordinateur</h3>
+<p>
+        Détection de personnes avec YOLO, zones polygonales, coordonnées,
+        filtrage des détections et traitement local des images.
+      </p>
+</div>
+<div>
+<span>03</span>
+<h3>Réseaux et protocoles</h3>
+<p>
+        MQTT, topics, QoS, Last Will, HTTPS, REST, TLS, reverse proxy et
+        communication entre appareils et services.
+      </p>
+</div>
+<div>
+<span>04</span>
+<h3>Développement back-end</h3>
+<p>
+        Node.js, TypeScript, Express, APIs, validation des données, traitements
+        événementiels et séparation des responsabilités.
+      </p>
+</div>
+<div>
+<span>05</span>
+<h3>Développement web</h3>
+<p>
+        Next.js, composants React, Server Actions, authentification, tableaux,
+        formulaires, visualisation et parcours d’onboarding.
+      </p>
+</div>
+<div>
+<span>06</span>
+<h3>Bases de données</h3>
+<p>
+        PostgreSQL, TimescaleDB, Prisma ORM, schéma relationnel, historisation
+        des mesures et requêtes d’analyse.
+      </p>
+</div>
+<div>
+<span>07</span>
+<h3>Conteneurisation</h3>
+<p>
+        Docker, Docker Compose, réseaux de conteneurs, variables
+        d’environnement, dépendances et reproductibilité du serveur.
+      </p>
+</div>
+<div>
+<span>08</span>
+<h3>CI/CD et déploiement</h3>
+<p>
+        GitLab, pipelines, génération automatisée d’images Raspberry Pi,
+        artefacts, versionnement et infrastructure de build.
+      </p>
+</div>
+<div>
+<span>09</span>
+<h3>Linux et administration</h3>
+<p>
+        Raspberry Pi OS Lite, configuration réseau, droits de fichiers,
+        services, pare-feu, mises à jour et diagnostic.
+      </p>
+</div>
+<div>
+<span>10</span>
+<h3>Conception mécanique</h3>
+<p>
+        Autodesk Fusion, modélisation paramétrique, contraintes mécaniques,
+        tolérances, fixation et impression 3D.
+      </p>
+</div>
+<div>
+<span>11</span>
+<h3>Gestion de projet</h3>
+<p>
+        Jira, tickets, priorisation, Kanban, Git, branches, Merge Requests,
+        revues et coordination d’équipe.
+      </p>
+</div>
+<div>
+<span>12</span>
+<h3>Documentation technique</h3>
+<p>
+        Rédaction structurée, guide d’installation, diagrammes d’architecture,
+        séquences, procédures de test et transmission des connaissances.
+      </p>
+</div>
+</div>
+<ul class="tag-list tag-list-large">
+<li>Raspberry Pi 5</li>
+<li>Python</li>
+<li>YOLO</li>
+<li>OpenCV</li>
+<li>MQTT</li>
+<li>EMQX</li>
+<li>Node.js</li>
+<li>TypeScript</li>
+<li>Express</li>
+<li>Next.js</li>
+<li>React</li>
+<li>PostgreSQL</li>
+<li>TimescaleDB</li>
+<li>Prisma</li>
+<li>Docker</li>
+<li>NGINX</li>
+<li>GitLab CI/CD</li>
+<li>Linux</li>
+<li>Autodesk Fusion</li>
+<li>Impression 3D</li>
+<li>Jira</li>
+</ul>
+</section>
+<section id="securite">
+<p class="eyebrow">06 — Sécurité et protection des données</p>
+<h2>Appliquer le principe de Privacy by Design</h2>
+<p>
+    La protection des données a influencé l’ensemble de l’architecture. En
+    fonctionnement normal, les images ne quittent pas le SenseNode : seul le
+    nombre de personnes détectées est transmis.
+  </p>
+<ul class="check-list">
+<li>
+      Détection des personnes effectuée localement sur le Raspberry Pi.
+    </li>
+<li>
+      Refus de transmettre l’image d’onboarding lorsqu’une personne est
+      détectée.
+    </li>
+<li>
+      Chiffrement de bout en bout de l’image temporaire utilisée pour définir la
+      zone.
+    </li>
+<li>
+      Communications HTTPS et MQTT protégées par TLS.
+    </li>
+<li>
+      Authentification et autorisation des appareils selon leur identité et
+      leurs topics MQTT.
+    </li>
+<li>
+      Chiffrement des configurations et des commandes sensibles destinées aux
+      SenseNodes.
+    </li>
+<li>
+      Durcissement de l’image Raspberry Pi, limitation de SSH, pare-feu et
+      mises à jour de sécurité.
+    </li>
+</ul>
+</section>
+<section id="realisation">
+<p class="eyebrow">07 — Réalisation et participation</p>
+<h2>Comprendre l’ensemble du système tout en prenant en charge une partie concrète</h2>
+<p>
+    Le projet a été réalisé en équipe avec une répartition des responsabilités.
+    Ma réalisation principale a été la
+    <strong>reconception complète du boîtier du SenseNode</strong>. L’ancien
+    modèle n’était disponible qu’au format STL et ne pouvait pas être adapté
+    proprement aux nouvelles contraintes matérielles.
+  </p>
+<p>
+    J’ai reconstruit le boîtier dans Autodesk Fusion en tenant compte du
+    Raspberry Pi 5, de la caméra, du refroidissement, du passage des câbles et
+    de la fixation externe. Plusieurs prototypes imprimés ont permis de corriger
+    les tolérances et d’améliorer progressivement l’assemblage.
+  </p>
+<p>
+    En parallèle, l’étude de la documentation, les réunions d’équipe et les
+    échanges sur les interfaces entre composants m’ont permis de comprendre le
+    fonctionnement des autres parties : détection, MQTT, serveur, dashboard,
+    image Raspberry Pi, pipeline CI/CD, sécurité et exploitation.
+  </p>
+</section>
+<section id="resultats">
+<p class="eyebrow">08 — Résultats et validation</p>
+<h2>Un système intégré testé avec plusieurs appareils</h2>
+<p>
+    Le projet a abouti à une nouvelle architecture serveur, un SenseNode
+    modulaire, une détection zonée, un parcours d’onboarding, un dashboard
+    complet, une image Raspberry Pi reproductible et un boîtier adapté au
+    Raspberry Pi 5.
+  </p>
+<p>
+    Un test pratique a été effectué dans la salle H1.01 avec trois Raspberry Pi.
+    Il a permis d’observer l’onboarding, la stabilité, la détection et le
+    fonctionnement du matériel. Les problèmes rencontrés ont servi à identifier
+    des améliorations concernant les interruptions réseau, la rotation de
+    caméra, la fiabilité du stockage, le redémarrage du serveur et la génération
+    des images dans la pipeline.
+  </p>
+</section>
+<section id="apprentissages">
+<p class="eyebrow">09 — Ce que le projet m’a appris</p>
+<h2>Passer d’une vision par composant à une vision système</h2>
+<p>
+    OccuPI v2 m’a appris qu’un projet IoT ne se limite pas au matériel ou au
+    logiciel embarqué. La fiabilité dépend de toute la chaîne : acquisition,
+    traitement local, réseau, protocole de messages, services serveur, base de
+    données, interface, sécurité, déploiement, maintenance et documentation.
+  </p>
+<ul class="check-list">
+<li>
+      Comprendre les échanges entre une architecture edge et un serveur central.
+    </li>
+<li>
+      Lire et interpréter des diagrammes de composants, de séquence et de flux.
+    </li>
+<li>
+      Identifier les dépendances entre matériel, logiciel, réseau et sécurité.
+    </li>
+<li>
+      Comprendre le cycle complet d’installation et d’onboarding d’un appareil.
+    </li>
+<li>
+      Prendre en compte les contraintes de maintenance et d’exploitation dès la
+      conception.
+    </li>
+<li>
+      Documenter un système de manière suffisamment précise pour qu’une autre
+      équipe puisse le reprendre.
+    </li>
+<li>
+      Travailler dans un projet collectif avec des responsabilités réparties,
+      des interfaces communes et des validations croisées.
+    </li>
+</ul>
+</section>
+<section id="galerie">
+<p class="eyebrow">10 — Galerie du projet</p>
+<h2>Architecture, interface et matériel</h2>
+<p>
+    Ces visuels présentent les principales dimensions du projet :
+    l’architecture complète, l’interface SenseBoard, la conception du boîtier
+    et l’intégration du Raspberry Pi.
+  </p>
+<div class="occupi-gallery-grid" data-gallery="">
+<button class="occupi-gallery-item" data-lightbox-src="assets/images/occupi-architecture.jpg" type="button">
+<span class="occupi-gallery-media">
+<img alt="Architecture complète du système OccuPI v2" src="assets/images/occupi-architecture.jpg"/>
+</span>
+<span class="occupi-gallery-caption">Architecture complète</span>
+</button>
+<button class="occupi-gallery-item" data-lightbox-src="assets/images/occupi-dashboard.jpg" type="button">
+<span class="occupi-gallery-media">
+<img alt="Tableau de bord SenseBoard d’OccuPI" src="assets/images/occupi-dashboard.jpg"/>
+</span>
+<span class="occupi-gallery-caption">Dashboard SenseBoard</span>
+</button>
+<button class="occupi-gallery-item" data-lightbox-src="assets/images/occupi-housing-detail.jpg" type="button">
+<span class="occupi-gallery-media">
+<img alt="Modélisation des fixations et des écrous du boîtier OccuPI" src="assets/images/occupi-housing-detail.jpg"/>
+</span>
+<span class="occupi-gallery-caption">Conception du boîtier</span>
+</button>
+<button class="occupi-gallery-item" data-lightbox-src="assets/images/occupi-hardware.jpg" type="button">
+<span class="occupi-gallery-media">
+<img alt="Raspberry Pi 5 installé dans le boîtier OccuPI" src="assets/images/occupi-hardware.jpg"/>
+</span>
+<span class="occupi-gallery-caption">Intégration du Raspberry Pi 5</span>
+</button>
+</div>
+</section><section id="documentation">
+<p class="eyebrow">11 — Documentation</p>
+<h2>Documentation technique et guide d’installation</h2>
+<p>
+    Le projet est accompagné d’une documentation détaillée décrivant
+    l’architecture, les composants, les données échangées, la sécurité, les
+    responsabilités et les résultats. Un guide séparé présente l’installation
+    physique, l’onboarding, l’administration du dashboard, les exports, la
+    gestion des images Raspberry Pi et le dépannage.
+  </p>
+<div class="project-links">
+<a class="button button-primary" href="assets/documents/OccuPI%20V2%20Dokumentation.pdf" rel="noopener noreferrer" target="_blank">
+      Documentation technique
+    </a>
+<a class="button button-secondary" href="assets/documents/OccuPI%20V2%20Bedienungsanleitung.pdf" rel="noopener noreferrer" target="_blank">
+      Guide d’installation
+    </a>
+</div>
+</section>
+</article>
+</div>
+</section>
+<div aria-label="Agrandissement de l’image" aria-modal="true" class="lightbox" data-lightbox="" hidden="" role="dialog">
+<button aria-label="Fermer" class="lightbox-close" data-lightbox-close="" type="button">
+        ×
+      </button>
+<img alt="Agrandissement" data-lightbox-image="" src=""/>
+</div>
+</main>
+<footer class="site-footer"><div class="container footer-grid"><div><a class="brand footer-brand" href="index.html"><span class="brand-mark">P</span><span>Portfolio</span></a><p>Portfolio personnel de Matthieu Dejoie.</p></div><div><h2>Navigation</h2><ul><li><a href="about.html">À propos</a></li><li><a href="projects.html">Projets</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><h2>Réseaux</h2><ul><li><a href="https://github.com/Grenat-404" rel="noopener noreferrer" target="_blank">GitHub</a></li><li><a href="https://www.linkedin.com/in/matthieu-dejoie-33211433b/" rel="noopener noreferrer" target="_blank">LinkedIn</a></li><li><a href="https://www.instagram.com/mtt_2joy/" rel="noopener noreferrer" target="_blank">Instagram</a></li></ul></div></div><div class="container footer-bottom"><p>© <span data-current-year=""></span> Matthieu Dejoie</p><a href="legal.html">Mentions légales</a></div></footer>
+</body>
+</html>
